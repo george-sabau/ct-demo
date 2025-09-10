@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+
+logging:
+  level:
+    org.springdoc: DEBUG
+
+commercetools:
+  project-key: test-project
+  client-id: dummy
+  client-secret: dummy
+  auth-url: http://localhost:8080/oauth/token
+  api-url: http://localhost:8080

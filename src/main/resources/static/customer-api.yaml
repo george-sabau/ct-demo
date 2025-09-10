@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: Customer API
+  version: 1.0.0
+  description: API to update customer information
+
+servers:
+  - url: http://localhost:8080/api
+    description: Local development server
+
+paths:
+  /customers:
+    put:
+      summary: Update multiple customers
+      description: Update existing customer information in bulk
+      operationId: updateCustomers
+      requestBody:
+        description: Array of customer objects to update
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomerUpdate'
+      responses:
+        '200':
+          description: Customers updated successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Invalid request
+        '404':
+          description: Customer not found
+        '500':
+          description: Server error
+
+  /customers/{key}:
+    put:
+      summary: Update a single customer
+      description: Update customer information by key
+      operationId: updateCustomer
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique key of the customer
+      requestBody:
+        description: Customer update object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerUpdate'
+      responses:
+        '200':
+          description: Customer updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Invalid request
+        '404':
+          description: Customer not found
+        '500':
+          description: Server error
+
+components:
+  schemas:
+    CustomerUpdate:
+      type: object
+      required:
+        - key
+      properties:
+        key:
+          type: string
+          description: Unique key of the customer
+          example: customer-1
+        firstName:
+          type: string
+          description: Customer first name
+          example: John
+        lastName:
+          type: string
+          description: Customer last name
+          example: Doe
+
+    CustomerResponse:
+      type: object
+      properties:
+        key:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp of last update

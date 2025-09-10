@@ -1,0 +1,122 @@
+[
+  {
+    "key": "sample-product-1",
+    "name": { "en": "Test Product 1" },
+    "slug": { "en": "test-product-1" },
+    "masterVariant": { "sku": "sku-001", "key": "master-variant-1", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-2",
+    "name": { "en": "Test Product 2" },
+    "slug": { "en": "test-product-2" },
+    "masterVariant": { "sku": "sku-002", "key": "master-variant-2", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-3",
+    "name": { "en": "Test Product 3" },
+    "slug": { "en": "test-product-3" },
+    "masterVariant": { "sku": "sku-003", "key": "master-variant-3", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-4",
+    "name": { "en": "Test Product 4" },
+    "slug": { "en": "test-product-4" },
+    "masterVariant": { "sku": "sku-004", "key": "master-variant-4", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-5",
+    "name": { "en": "Test Product 5" },
+    "slug": { "en": "test-product-5" },
+    "masterVariant": { "sku": "sku-005", "key": "master-variant-5", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-6",
+    "name": { "en": "Test Product 6" },
+    "slug": { "en": "test-product-6" },
+    "masterVariant": { "sku": "sku-006", "key": "master-variant-6", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-7",
+    "name": { "en": "Test Product 7" },
+    "slug": { "en": "test-product-7" },
+    "masterVariant": { "sku": "sku-007", "key": "master-variant-7", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-8",
+    "name": { "en": "Test Product 8" },
+    "slug": { "en": "test-product-8" },
+    "masterVariant": { "sku": "sku-008", "key": "master-variant-8", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-9",
+    "name": { "en": "Test Product 9" },
+    "slug": { "en": "test-product-9" },
+    "masterVariant": { "sku": "sku-009", "key": "master-variant-9", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-10",
+    "name": { "en": "Test Product 10" },
+    "slug": { "en": "test-product-10" },
+    "masterVariant": { "sku": "sku-010", "key": "master-variant-10", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-11",
+    "name": { "en": "Test Product 11" },
+    "slug": { "en": "test-product-11" },
+    "masterVariant": { "sku": "sku-011", "key": "master-variant-11", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-12",
+    "name": { "en": "Test Product 12" },
+    "slug": { "en": "test-product-12" },
+    "masterVariant": { "sku": "sku-012", "key": "master-variant-12", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-13",
+    "name": { "en": "Test Product 13" },
+    "slug": { "en": "test-product-13" },
+    "masterVariant": { "sku": "sku-013", "key": "master-variant-13", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-14",
+    "name": { "en": "Test Product 14" },
+    "slug": { "en": "test-product-14" },
+    "masterVariant": { "sku": "sku-014", "key": "master-variant-14", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-15",
+    "name": { "en": "Test Product 15" },
+    "slug": { "en": "test-product-15" },
+    "masterVariant": { "sku": "sku-015", "key": "master-variant-15", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-16",
+    "name": { "en": "Test Product 16" },
+    "slug": { "en": "test-product-16" },
+    "masterVariant": { "sku": "sku-016", "key": "master-variant-16", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-17",
+    "name": { "en": "Test Product 17" },
+    "slug": { "en": "test-product-17" },
+    "masterVariant": { "sku": "sku-017", "key": "master-variant-17", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-18",
+    "name": { "en": "Test Product 18" },
+    "slug": { "en": "test-product-18" },
+    "masterVariant": { "sku": "sku-018", "key": "master-variant-18", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-19",
+    "name": { "en": "Test Product 19" },
+    "slug": { "en": "test-product-19" },
+    "masterVariant": { "sku": "sku-019", "key": "master-variant-19", "prices": [], "attributes": [] }
+  },
+  {
+    "key": "sample-product-20",
+    "name": { "en": "Test Product 20" },
+    "slug": { "en": "test-product-20" },
+    "masterVariant": { "sku": "sku-020", "key": "master-variant-20", "prices": [], "attributes": [] }
+  }
+]

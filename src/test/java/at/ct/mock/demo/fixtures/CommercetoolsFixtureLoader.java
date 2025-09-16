@@ -15,8 +15,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Set;
 
-import static at.ct.mock.demo.fixtures.FixtureType.CUSTOMERS;
-import static at.ct.mock.demo.fixtures.FixtureType.PRODUCTS;
+import static at.ct.mock.demo.fixtures.FixtureType.*;
 
 @ActiveProfiles("test")
 @Component
@@ -35,12 +34,124 @@ public class CommercetoolsFixtureLoader {
     }
 
     public void load(Set<FixtureType> fixtureTypes) throws Exception {
+        if (fixtureTypes.contains(PRODUCT_TYPES)) {
+            loadProductTypes();
+        }
         if (fixtureTypes.contains(PRODUCTS)) {
             loadProducts();
+        }
+        if (fixtureTypes.contains(CATEGORIES)) {
+            loadCategories();
+        }
+        if (fixtureTypes.contains(TAX_CATEGORIES)) {
+            loadTaxCategories();
+        }
+        if (fixtureTypes.contains(CHANNELS)) {
+            loadChannels();
+        }
+        if (fixtureTypes.contains(INVENTORY_ENTRIES)) {
+            loadInventoryEntries();
+        }
+        if (fixtureTypes.contains(CUSTOM_TYPES)) {
+            loadCustomTypes();
         }
         if (fixtureTypes.contains(CUSTOMERS)) {
             loadCustomers();
         }
+        if (fixtureTypes.contains(CUSTOMER_GROUPS)) {
+            loadCustomerGroups();
+        }
+        if (fixtureTypes.contains(CARTS)) {
+            loadCarts();
+        }
+        if (fixtureTypes.contains(ORDERS)) {
+            loadOrders();
+        }
+        if (fixtureTypes.contains(DISCOUNT_CODES)) {
+            loadDiscountCodes();
+        }
+        if (fixtureTypes.contains(PAYMENTS)) {
+            loadPayments();
+        }
+        if (fixtureTypes.contains(PRODUCT_DISCOUNTS)) {
+            loadProductDiscounts();
+        }
+        if (fixtureTypes.contains(CART_DISCOUNTS)) {
+            loadCartDiscounts();
+        }
+        if (fixtureTypes.contains(SHIPPING_METHODS)) {
+            loadShippingMethods();
+        }
+        if (fixtureTypes.contains(ZONES)) {
+            loadZones();
+        }
+        if (fixtureTypes.contains(STORES)) {
+            loadStores();
+        }
+    }
+
+    private void loadProductTypes() throws Exception {
+        // implement product type creation logic
+    }
+
+    private void loadCategories() throws Exception {
+        // implement category creation logic
+    }
+
+    private void loadTaxCategories() throws Exception {
+        // implement tax category creation logic
+    }
+
+    private void loadChannels() throws Exception {
+        // implement channel creation logic
+    }
+
+    private void loadInventoryEntries() throws Exception {
+        // implement inventory entries creation logic
+    }
+
+    private void loadCustomTypes() throws Exception {
+        // implement custom types creation logic
+    }
+
+    private void loadCustomerGroups() throws Exception {
+        // implement customer groups creation logic
+    }
+
+    private void loadCarts() throws Exception {
+        // implement cart creation logic
+    }
+
+    private void loadOrders() throws Exception {
+        // implement orders creation logic
+    }
+
+    private void loadDiscountCodes() throws Exception {
+        // implement discount codes creation logic
+    }
+
+    private void loadPayments() throws Exception {
+        // implement payments creation logic
+    }
+
+    private void loadProductDiscounts() throws Exception {
+        // implement product discount creation logic
+    }
+
+    private void loadCartDiscounts() throws Exception {
+        // implement cart discount creation logic
+    }
+
+    private void loadShippingMethods() throws Exception {
+        // implement shipping methods creation logic
+    }
+
+    private void loadZones() throws Exception {
+        // implement shipping zones creation logic
+    }
+
+    private void loadStores() throws Exception {
+        // implement store creation logic
     }
 
     private void loadProducts() throws Exception {

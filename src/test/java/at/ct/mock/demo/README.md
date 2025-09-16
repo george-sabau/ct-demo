@@ -16,8 +16,6 @@ The tests use a **Commercetools mock server** (Docker container) to provide a sa
 - Main integration test class for customer update flows.
 - **Annotations:**
     - `@CommercetoolsTest` → custom annotation that wraps Spring Boot test configuration and handles mock server lifecycle.
-    - `@TestInstance(TestInstance.Lifecycle.PER_CLASS)` → allows non-static `@BeforeAll` and `@AfterAll` methods.
-    - `@LocalServerPort` → injects random port assigned to the Spring Boot app.
 - **Purpose:**
     1. Load predefined fixtures (customers and products) into the mock Commercetools server.
     2. Call REST API endpoints to update customers.

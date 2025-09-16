@@ -14,9 +14,9 @@ public class ApiClientConfig {
         return new RestTemplate();
     }
     @Bean
-    public ApiClient apiClient(RestTemplate restTemplate) {
+    public ApiClient apiClient(RestTemplate restTemplate, CustomerServiceProperties customerServiceProperties) {
         final ApiClient apiClient = new ApiClient(restTemplate);
-        apiClient.setBasePath("http://localhost:8080/api");
+        apiClient.setBasePath(customerServiceProperties.getApiUrl());
         return apiClient;
     }
 

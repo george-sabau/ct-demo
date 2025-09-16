@@ -5,9 +5,7 @@ import at.ct.mock.demo.server.CommercetoolsTest;
 import com.commercetools.api.client.ProjectApiRoot;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Set;
 
@@ -15,9 +13,7 @@ import static at.ct.mock.demo.fixtures.FixtureType.CUSTOMERS;
 import static at.ct.mock.demo.fixtures.FixtureType.PRODUCTS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
 @CommercetoolsTest
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CommerceToolsMockServerIT {
 
     @Autowired

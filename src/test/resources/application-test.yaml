@@ -3,6 +3,9 @@ spring:
     activate:
       on-profile: test
 
+server:
+  port: 8080
+
 logging:
   level:
     org.springdoc: DEBUG
@@ -11,5 +14,11 @@ commercetools:
   project-key: test-project
   client-id: dummy
   client-secret: dummy
-  auth-url: http://localhost:8080/oauth/token
-  api-url: http://localhost:8080
+  auth-url: http://commercetools:1234/oauth/token
+  api-url: http://commercetools:1234
+
+customer-service:
+  api-url: http://localhost:8080/api
+  user: dummy
+  password: dummy
+

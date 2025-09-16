@@ -8,9 +8,7 @@ import com.commercetools.api.client.ProjectApiRoot;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.web.server.LocalServerPort;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -19,12 +17,8 @@ import static at.ct.mock.demo.fixtures.FixtureType.CUSTOMERS;
 import static at.ct.mock.demo.fixtures.FixtureType.PRODUCTS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @CommercetoolsTest
 public class CustomerUpdateFlowIT {
-
-    @LocalServerPort
-    private int port;
 
     @Autowired
     private DefaultApi customerClient;
@@ -37,7 +31,6 @@ public class CustomerUpdateFlowIT {
 
     @BeforeAll
     void beforeAll() throws Exception {
-        customerClient.getApiClient().setBasePath("http://localhost:" + port + "/api");
         fixtureLoader.load(Set.of(CUSTOMERS, PRODUCTS));
     }
 
@@ -45,7 +38,7 @@ public class CustomerUpdateFlowIT {
     void runUpdateCustomerHappyPath() {
         var customerUpdate = new CustomerUpdate();
         customerUpdate.setKey("customer-1");
-        customerUpdate.setFirstName("not the same as it was");
+        customerUpdate.setFirstName("daniel");
         customerUpdate.setLastName("still the same as it was");
 
         // call customerUpdate customer endpoint
@@ -57,7 +50,7 @@ public class CustomerUpdateFlowIT {
                 .untilAsserted(
                         () -> {
                             var customer = commercetoolsClient.customers().withKey("customer-1").get().executeBlocking().getBody();
-                            assertEquals("not the same as it was", customer.getFirstName());
+                            assertEquals("daniel", customer.getFirstName());
                             assertEquals("still the same as it was", customer.getLastName());
                         });
     }

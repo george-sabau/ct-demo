@@ -3,6 +3,7 @@ package at.ct.mock.demo;
 import at.ct.mock.demo.client.api.DefaultApi;
 import at.ct.mock.demo.client.model.CustomerUpdate;
 import at.ct.mock.demo.fixtures.CommercetoolsFixtureLoader;
+import at.ct.mock.demo.fixtures.FixtureScenario;
 import at.ct.mock.demo.server.CommercetoolsTest;
 import com.commercetools.api.client.ProjectApiRoot;
 import org.awaitility.Awaitility;
@@ -10,11 +11,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static at.ct.mock.demo.fixtures.FixtureType.CUSTOMERS;
-import static at.ct.mock.demo.fixtures.FixtureType.PRODUCTS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @CommercetoolsTest
@@ -31,7 +29,7 @@ public class CustomerUpdateFlowIT {
 
     @BeforeAll
     void beforeAll() throws Exception {
-        fixtureLoader.load(Set.of(CUSTOMERS, PRODUCTS));
+        fixtureLoader.load(FixtureScenario.CUSTOMERS);
     }
 
     @Test

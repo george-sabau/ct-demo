@@ -47,7 +47,9 @@ public enum FixtureScenario implements Set<FixtureType> {
     // Scenario for store setup
     STORES(EnumSet.of(
             FixtureType.STORES
-    ));
+    )),
+
+    FULL(EnumSet.allOf(FixtureType.class));
 
     @Delegate
     private final Set<FixtureType> delegate;

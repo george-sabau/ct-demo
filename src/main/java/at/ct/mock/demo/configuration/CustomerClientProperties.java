@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "customer-service")
-public class CustomerServiceProperties {
+public class CustomerClientProperties {
     private String apiUrl;
     private String user;
     private String password;

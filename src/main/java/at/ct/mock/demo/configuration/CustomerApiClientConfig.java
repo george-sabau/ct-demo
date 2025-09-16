@@ -7,16 +7,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class ApiClientConfig {
+public class CustomerApiClientConfig {
 
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
     @Bean
-    public ApiClient apiClient(RestTemplate restTemplate, CustomerServiceProperties customerServiceProperties) {
+    public ApiClient apiClient(RestTemplate restTemplate, CustomerClientProperties customerClientProperties) {
         final ApiClient apiClient = new ApiClient(restTemplate);
-        apiClient.setBasePath(customerServiceProperties.getApiUrl());
+        apiClient.setBasePath(customerClientProperties.getApiUrl());
         return apiClient;
     }
 

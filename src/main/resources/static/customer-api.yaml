@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Customer API
   version: 1.0.0
-  description: API to update customer information
+  description: API to manage and update customer information
 
 servers:
   - url: http://localhost:8080/api
@@ -40,6 +40,29 @@ paths:
           description: Server error
 
   /customers/{key}:
+    get:
+      summary: Get a customer by key
+      description: Retrieve customer information by unique key
+      operationId: getCustomer
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique key of the customer
+      responses:
+        '200':
+          description: Customer retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '404':
+          description: Customer not found
+        '500':
+          description: Server error
+
     put:
       summary: Update a single customer
       description: Update customer information by key
@@ -97,11 +120,18 @@ components:
       properties:
         key:
           type: string
+          description: Unique key of the customer
+          example: customer-1
         firstName:
           type: string
+          description: Customer first name
+          example: John
         lastName:
           type: string
+          description: Customer last name
+          example: Doe
         updatedAt:
           type: string
           format: date-time
-          description: Timestamp of last update
+          description: Timestamp of the last update
+          example: 2025-09-17T15:34:00Z

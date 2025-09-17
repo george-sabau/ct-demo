@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.io.File;
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.Set;
 
 import static at.ct.mock.demo.fixtures.FixtureType.*;
 
-@ActiveProfiles("test")
 @Component
 public class CommercetoolsFixtureLoader {
 
@@ -25,8 +23,8 @@ public class CommercetoolsFixtureLoader {
     private final ObjectMapper mapper;
 
     // Internal fixture paths
-    private final String PRODUCTS_PATH = "src/test/resources/fixtures/products.json";
-    private final String CUSTOMERS_PATH = "src/test/resources/fixtures/customers.json";
+    private final String PRODUCTS_PATH = "src/main/resources/fixtures/products.json";
+    private final String CUSTOMERS_PATH = "src/main/resources/fixtures/customers.json";
 
     public CommercetoolsFixtureLoader(@Autowired ProjectApiRoot client) {
         this.client = client;

@@ -1,6 +1,7 @@
 package at.ct.mock.demo.service;
 
 import com.commercetools.api.client.ProjectApiRoot;
+import com.commercetools.api.models.customer.Customer;
 import com.commercetools.api.models.customer.CustomerSetFirstNameAction;
 import com.commercetools.api.models.customer.CustomerSetLastNameAction;
 import com.commercetools.api.models.customer.CustomerUpdate;
@@ -39,5 +40,9 @@ public class CustomerService {
                 .withKey(key)
                 .post(update)
                 .executeBlocking();
+    }
+
+    public Customer get(final String key) {
+        return commercetoolsClient.customers().withKey(key).get().executeBlocking().getBody();
     }
 }

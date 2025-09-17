@@ -10,7 +10,7 @@ With the **demo profile**, the application can run with a **runtime mock server*
 
 ## Features
 
-- Update single or multiple customers in Commercetools.
+- CRUD Customers in Commercetools.
 - Uses **Commercetools SDK v19.4.0** for API integration.
 - REST endpoints implemented with Spring Web.
 - OpenAPI 3.1 compliant, with Swagger UI support.

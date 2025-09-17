@@ -32,7 +32,7 @@ The tests use a **Commercetools mock server** (Docker container) to provide a sa
 - Manages the lifecycle of the **mock Commercetools server** using Testcontainers.
 - **Responsibilities:**
     - Start the container and expose port `8989`.
-    - Mount local fixtures (`src/test/resources/fixtures`) into the container.
+    - Mount local fixtures (`src/main/resources/fixtures`) into the container.
     - Dynamically configure Spring Boot environment properties:
         - `commercetools.auth-url`
         - `commercetools.api-url`
@@ -89,7 +89,7 @@ The tests use a **Commercetools mock server** (Docker container) to provide a sa
 
 ## Test Fixtures
 
-- Located in `src/test/resources/fixtures`.
+- Located in `src/main/resources/fixtures`.
 - **customers.json** → predefined customers (e.g., `customer-1`).
 - **products.json** → predefined products.
 - Loaded automatically before tests by `CommercetoolsFixtureLoader`.

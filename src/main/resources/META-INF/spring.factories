@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+at.ct.mock.demo.server.CommercetoolsMockServerRuntimeInitializer

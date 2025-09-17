@@ -1,9 +1,10 @@
 package at.ct.mock.demo.server;
 
 import lombok.Getter;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.stereotype.Component;
 import org.testcontainers.containers.GenericContainer;
@@ -12,10 +13,12 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
+
 @Profile("demo")
 @Component
 public class CommercetoolsMockServerRuntimeInitializer
-        implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+        implements EnvironmentPostProcessor {
 
     @Getter
     private static final GenericContainer<?> commercetoolsMockServer =
@@ -31,13 +34,17 @@ public class CommercetoolsMockServerRuntimeInitializer
     }
 
     @Override
-    public void initialize(ConfigurableApplicationContext context) {
+    public void postProcessEnvironment(final ConfigurableEnvironment environment, final SpringApplication application) {
+        if (!asList(environment.getActiveProfiles()).contains("demo")) {
+            return; // skip configuration if not running in "demo" profile
+        }
+
         ensureStarted();
-        configureServer(context);
+        configureServer(environment);
         addHooks();
     }
 
-    private static void configureServer(final ConfigurableApplicationContext context) {
+    private static void configureServer(final ConfigurableEnvironment environment) {
         String baseUrl = "http://" + commercetoolsMockServer.getHost() + ":"
                 + commercetoolsMockServer.getMappedPort(8989);
 
@@ -46,8 +53,7 @@ public class CommercetoolsMockServerRuntimeInitializer
         props.put("commercetools.auth-url", baseUrl + "/oauth/token");
         props.put("commercetools.api-url", baseUrl);
 
-        context.getEnvironment()
-                .getPropertySources()
+        environment.getPropertySources()
                 .addFirst(new MapPropertySource("commercetoolsMockServerProps", props));
     }
 

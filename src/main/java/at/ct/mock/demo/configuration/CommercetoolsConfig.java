@@ -5,10 +5,12 @@ import com.commercetools.api.defaultconfig.ApiRootBuilder;
 import io.vrap.rmf.base.client.oauth2.ClientCredentials;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 public class CommercetoolsConfig {
 
+    @Lazy
     @Bean
     public ProjectApiRoot commercetoolsClient(CommercetoolsProperties props) {
         return ApiRootBuilder.of()

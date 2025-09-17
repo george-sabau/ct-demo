@@ -18,14 +18,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @CommercetoolsTest
 public class CustomerUpdateFlowIT {
 
-    @Autowired
-    private DefaultApi customerClient;
+    private final DefaultApi customerClient;
+    private final CommercetoolsFixtureLoader fixtureLoader;
+    private final ProjectApiRoot commercetoolsClient;
 
-    @Autowired
-    private CommercetoolsFixtureLoader fixtureLoader;
-
-    @Autowired
-    private ProjectApiRoot commercetoolsClient;
+    public CustomerUpdateFlowIT(@Autowired final DefaultApi customerClient, @Autowired  final CommercetoolsFixtureLoader fixtureLoader, @Autowired  final ProjectApiRoot commercetoolsClient) {
+        this.customerClient = customerClient;
+        this.fixtureLoader = fixtureLoader;
+        this.commercetoolsClient = commercetoolsClient;
+    }
 
     @BeforeAll
     void beforeAll() throws Exception {

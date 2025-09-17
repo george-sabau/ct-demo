@@ -1,6 +1,9 @@
 spring:
   application:
-    name: demo
+    name: dt-demo
+  context:
+    initializers:
+      - at.ct.mock.demo.server.CommercetoolsMockServerRuntimeInitializer
 
 server:
   port: 8080

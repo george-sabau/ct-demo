@@ -18,7 +18,7 @@ public class CommercetoolsMockServerInitializer
     private static final GenericContainer<?> commercetoolsMockServer =
             new GenericContainer<>("labdigital/commercetools-mock-server:latest")
                     .withExposedPorts(8989)
-                    .withFileSystemBind("src/test/resources/fixtures", "/data")
+                    .withFileSystemBind("src/main/resources/fixtures", "/data")
                     .withStartupTimeout(Duration.ofSeconds(10));
 
 

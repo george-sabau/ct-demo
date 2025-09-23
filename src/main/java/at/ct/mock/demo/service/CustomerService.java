@@ -19,9 +19,6 @@ public class CustomerService {
         this.commercetoolsClient = commercetoolsClient;
     }
 
-    /**
-     * propagate update to commercetools
-     */
     public void update(final String key, final String firstName, final String lastName) {
         CustomerUpdateAction setFirstName = CustomerSetFirstNameAction.builder()
                 .firstName(firstName)

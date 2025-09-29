@@ -1,8 +1,8 @@
 package at.ct.mock.demo;
 
 import at.ct.mock.demo.fixtures.CommercetoolsFixtureLoader;
-import at.ct.mock.demo.server.CommercetoolsTest;
 import com.commercetools.api.client.ProjectApiRoot;
+import at.ct.mock.commontestutils.CommercetoolsTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

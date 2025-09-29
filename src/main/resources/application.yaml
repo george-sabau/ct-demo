@@ -20,8 +20,8 @@ commercetools:
   project-key: test-project
   client-id: dummy
   client-secret: dummy
-  auth-url: http://commercetools:1234/oauth/token
-  api-url: http://commercetools:1234
+  auth-url: http://localhost:8989/oauth/token
+  api-url: http://localhost:8989
 
 customer-service:
   api-url: http://localhost:8080/api

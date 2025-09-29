@@ -1,4 +1,4 @@
-package at.ct.mock.demo.server;
+package at.ct.mock.commontestutils;
 
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;

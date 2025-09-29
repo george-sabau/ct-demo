@@ -19,13 +19,19 @@
         <commercetools.version>19.4.0</commercetools.version>
         <testcontainers.version>1.20.2</testcontainers.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub george-sabau Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/george-sabau/ct-demo</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <!-- Spring Boot Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -71,14 +77,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- JUnit Jupiter API & Engine (comes with Spring Boot Starter Test) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- Testcontainers: for running the Node Mock server inside tests -->

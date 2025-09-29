@@ -1,4 +1,4 @@
-package at.ct.mock.demo.server;
+package at.ct.mock.commontestutils;
 
 import lombok.Getter;
 import org.junit.jupiter.api.extension.AfterAllCallback;

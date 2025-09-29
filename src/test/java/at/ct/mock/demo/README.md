@@ -28,7 +28,7 @@ The tests use a **Commercetools mock server** (Docker container) to provide a sa
 
 ### 2. **CommercetoolsMockServerInitializer**
 
-- **Location:** `at.ct.mock.demo.server.CommercetoolsMockServerInitializer`
+- **Location:** `at.ct.mock.commontestutils.CommercetoolsMockServerInitializer`
 - Manages the lifecycle of the **mock Commercetools server** using Testcontainers.
 - **Responsibilities:**
     - Start the container and expose port `8989`.
@@ -45,7 +45,7 @@ The tests use a **Commercetools mock server** (Docker container) to provide a sa
 
 ### 3. **@CommercetoolsTest Annotation**
 
-- **Location:** `at.ct.mock.demo.server.CommercetoolsTest`
+- **Location:** `at.ct.mock.commontestutils.CommercetoolsTest`
 - Combines Spring Boot test setup with the mock server lifecycle:
     - Starts Spring Boot application on a random port.
     - Initializes environment properties for Commercetools SDK.

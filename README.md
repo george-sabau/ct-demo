@@ -107,7 +107,39 @@ Once running, the initializer injects dynamic properties into the Spring `Enviro
 
 This ensures your application **transparently communicates** with the mock server.
 
-### 3. Teardown
+### 3. Testing commercetools mock server API
+
+The mock server **does not persist any data**. Any required test data must be imported **before running an integration test**.
+
+Nevertheless, the Commercetools API is fully available and can be interacted with from your application.
+
+As described before, the `http://<host>:<mappedPort>` URLs are **dynamic** - random port mappings are assigned for each test executions. 
+This enables running multiple tests in parallel and reduces any port conflicts over a set of possible environments. 
+
+You can inspect these dynamic values in several ways:
+
+1. **Docker Desktop** – check the running container’s ports.
+2. **Docker CLI** – run `docker ps` or `docker port <container_id>`.
+3. **Debugging** – inspect the container directly from your application or test.
+
+Example API Endpoint:
+
+`http://localhost:56239/test-project/products`
+
+You can use any project-key (i.e. `"test-project"`) and no authentication is required. 
+
+Expected response:
+```json
+{
+"count": 0,
+"total": 0,
+"offset": 0,
+"limit": 20,
+"results": []
+}
+```
+
+### 4. Teardown
 After all tests in the class are executed, the container is **stopped**.
 
 - Because `@DirtiesContext` is used, the Spring test context is **refreshed after each class**, ensuring isolation.

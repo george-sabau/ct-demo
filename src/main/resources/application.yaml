@@ -1,16 +1,9 @@
 spring:
   application:
-    name: dt-demo
-  context:
-    initializers:
-      - at.ct.mock.demo.server.CommercetoolsMockServerRuntimeInitializer
+    name: ct-demo
 
 server:
   port: 8080
-
-springdoc:
-  swagger-ui:
-    url: customer-api.yaml
 
 logging:
   level:
@@ -23,8 +16,4 @@ commercetools:
   auth-url: http://localhost:8989/oauth/token
   api-url: http://localhost:8989
 
-customer-service:
-  api-url: http://localhost:8080/api
-  user: dummy
-  password: dummy
 

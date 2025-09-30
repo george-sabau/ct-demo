@@ -10,14 +10,19 @@
     </parent>
     <groupId>at.ct.mock</groupId>
     <artifactId>ct-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Commerce Tools Mock</description>
+    <version>0.0.1-utils-SNAPSHOT</version>
+    <name>common test utils</name>
+    <description>Common testing utilities for Commerce Tools Mock Server</description>
     <properties>
         <java.version>21</java.version>
         <spring-boot.version>3.2.5</spring-boot.version>
         <commercetools.version>19.4.0</commercetools.version>
         <testcontainers.version>1.20.2</testcontainers.version>
+        <maven-deploy.version>3.1.4</maven-deploy.version>
+        <maven-javadoc.version>3.10.1</maven-javadoc.version>
+        <maven-source.version>3.3.1</maven-source.version>
+        <maven-compiler.version>3.14.0</maven-compiler.version>
+        <maven-build-helper.version>3.6.1</maven-build-helper.version>
     </properties>
 
     <distributionManagement>
@@ -27,30 +32,12 @@
             <url>https://maven.pkg.github.com/george-sabau/ct-demo</url>
         </repository>
     </distributionManagement>
+
     <dependencies>
-        <!-- Spring Boot Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <!-- Web (REST controllers, API endpoints, etc.) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- Configuration Processor (for @ConfigurationProperties) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <!-- Commercetools Java SDK (API + Import API + HTTP Client) -->
         <dependency>
             <groupId>com.commercetools.sdk</groupId>
@@ -79,31 +66,10 @@
             <artifactId>testcontainers</artifactId>
             <version>${testcontainers.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openapitools</groupId>
-            <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-            <version>2.8.13</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.8.13</version>
         </dependency>
     </dependencies>
 
@@ -113,52 +79,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.0.1</version>
-                <executions>
-                    <execution>
-                        <id>generate-java-client</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Path to your OpenAPI spec -->
-                            <inputSpec>${project.basedir}/src/main/resources/static/customer-api.yaml</inputSpec>
-
-                            <!-- Output directory for generated client -->
-                            <output>${project.build.directory}/generated-sources/customer-client</output>
-
-                            <!-- Generate Java client -->
-                            <generatorName>java</generatorName>
-
-                            <!-- Use Spring RestTemplate for integration with Spring Boot -->
-                            <library>resttemplate</library>
-
-                            <!-- Package for the generated classes -->
-                            <apiPackage>at.ct.mock.demo.client.api</apiPackage>
-                            <modelPackage>at.ct.mock.demo.client.model</modelPackage>
-                            <invokerPackage>at.ct.mock.demo.client</invokerPackage>
-                            <configOptions>
-                                <!-- Important: this is the correct flag -->
-                                <useJakartaEe>true</useJakartaEe>
-                            </configOptions>
-                            <additionalProperties>
-                                <useJakartaAnnotations>true</useJakartaAnnotations>
-                                <useJUnit5>true</useJUnit5>
-                            </additionalProperties>
-                            <generateApiTests>false</generateApiTests>
-                            <generateModelTests>false</generateModelTests>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <!-- Add this plugin to tell Maven to include generated sources -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>${maven-build-helper.version}</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -178,7 +103,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>${maven-compiler.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -189,7 +114,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${maven-source.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -199,11 +124,10 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>${maven-javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -213,11 +137,10 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.4</version>
+                <version>${maven-deploy.version}</version>
             </plugin>
         </plugins>
     </build>

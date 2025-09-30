@@ -17,8 +17,3 @@ commercetools:
   auth-url: http://localhost:8989/oauth/token
   api-url: http://localhost:8989
 
-customer-service:
-  api-url: http://localhost:8080/api
-  user: dummy
-  password: dummy
-

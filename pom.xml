@@ -23,14 +23,29 @@
         <maven-compiler.version>3.14.0</maven-compiler.version>
         <maven-build-helper.version>3.6.1</maven-build-helper.version>
     </properties>
-
-    <distributionManagement>
-        <repository>
+    <!-- mvn clean deploy -Pgithub-fyayc -->
+    <profiles>
+        <profile>
             <id>github</id>
-            <name>GitHub george-sabau Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/george-sabau/ct-demo</url>
-        </repository>
-    </distributionManagement>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub george-sabau Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/george-sabau/ct-demo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <id>github-fyayc</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub fyayc Apache Maven Packages</name>
+                    <url>https://github.com/foryouandyourcustomers/ct-demo</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>

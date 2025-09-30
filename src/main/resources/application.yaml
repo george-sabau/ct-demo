@@ -2,9 +2,6 @@ spring:
   application:
     name: ct-demo
 
-server:
-  port: 8080
-
 logging:
   level:
     org.springdoc: DEBUG

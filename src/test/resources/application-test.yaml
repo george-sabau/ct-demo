@@ -3,9 +3,6 @@ spring:
     activate:
       on-profile: test
 
-server:
-  port: 8080
-
 logging:
   level:
     org.springdoc: DEBUG

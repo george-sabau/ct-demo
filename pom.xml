@@ -41,7 +41,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub fyayc Apache Maven Packages</name>
-                    <url>https://github.com/foryouandyourcustomers/ct-demo</url>
+                    <url>https://maven.pkg.github.com/foryouandyourcustomers/ct-demo</url>
                 </repository>
             </distributionManagement>
         </profile>

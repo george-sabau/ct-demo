@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>at.ct.mock</groupId>
-    <artifactId>ct-demo</artifactId>
-    <version>0.0.1-utils-SNAPSHOT</version>
+    <artifactId>common-test-utils</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <name>common test utils</name>
     <description>Common testing utilities for Commerce Tools Mock Server</description>
     <properties>
@@ -78,28 +78,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
-            <!-- Add this plugin to tell Maven to include generated sources -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>${maven-build-helper.version}</version>
-                <executions>
-                    <execution>
-                        <id>add-source</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.build.directory}/generated-sources/customer-client/src/main/java</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
